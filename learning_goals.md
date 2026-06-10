@@ -1,11 +1,10 @@
 # Mandatory II - Læringsmål
 
 **Adam Leon Divsalar**
-Teknologi 2. semester datamatiker, KEA
+Teknologi 2. semester datamatiker, EK
 
-Her har jeg skrevet alle læringsmål fra "Learning Goals"-kolonnen i semesterplanen.
-Ved "can"-mål viser jeg et eksempel og skriver "Det kan jeg". Ved "knows/understands"
-skriver jeg stikord, jeg kan forklare mundtligt ud fra. Jeg dækker uge 1, 2, 3, 5, 6, 7, 8 og 9.
+Her har jeg skrevet omkring alle læringsmål fra "Learning Goals" kolonnen i semesterplanen.
+Skriver jeg det i stikord, så jeg ville kunne kan forklare mundtligt ud fra det.
 
 ---
 
@@ -45,8 +44,6 @@ wc -l file.txt      # tæller linjer
 sort navne.txt      # sorterer alfabetisk
 sort navne.txt | uniq   # fjerner gentagne linjer der står ved siden af hinanden
 ```
-
-`uniq` fjerner kun ens linjer der står lige efter hinanden, så jeg sorterer altid først.
 
 Det kan jeg!
 
@@ -113,9 +110,9 @@ CPU'en behandler dem -> resultatet vises på skærmen.
 
 - En proces er et program der kører.
 - Hver proces har sin egen hukommelse og sin egen tilstand (running, waiting, terminated).
-- OS'et styrer processerne med scheduling (hvem kører nu) og context switching (skift mellem dem).
+- Operating System (OS)'et styrer processerne med scheduling og context switching. 
 - Det er det der giver multitasking, så flere programmer kører "samtidig".
-- En proces kan have flere tråde, der deler procesens hukommelse.
+- En proces kan have flere tråde, ved at dele de fysiske kerner op.
 
 **Can talk about different number representations: Binary, Hexadecimal, Decimal.**
 
@@ -129,7 +126,7 @@ Binær:        1101    (8 + 4 + 0 + 1)
 Hexadecimal:  D
 ```
 
-Det kan jeg, og jeg kan regne frem og tilbage i hånden.
+Det kan jeg!
 
 **Can bring up real-world use cases for different number representations.**
 
@@ -143,10 +140,8 @@ Det kan jeg!
 
 - ASCII: bruger 7 bit, altså 128 tegn. Den dækker engelske bogstaver, tal og symboler, men ikke æ, ø og å. Eksempel: A = 65.
 - Unicode: dækker stort set alle sprog og symboler, også emojis. Den lagres typisk som UTF-8.
-- Forskellen er at ASCII er begrænset, mens Unicode er universel og bagudkompatibel med ASCII.
+- Forskellen er at ASCII er et begrænset ældre sprog som kun kan vise engelske tegn, mens Unicode er universel og bagudkompatibel med ASCII.
 
-Det er præcis derfor jeg satte `DEFAULT CHARACTER SET utf8` på databasen i Mandatory I.
-Ellers bliver de danske tegn ødelagt.
 
 ---
 
@@ -194,8 +189,6 @@ CREATE TABLE users (
 
 DDL står for Data Definition Language (CREATE, ALTER, DROP).
 
-Det kan jeg!
-
 **Can create DML (SELECT, INSERT) statements.**
 
 ```sql
@@ -205,14 +198,11 @@ SELECT * FROM users;
 
 DML står for Data Manipulation Language (SELECT, INSERT, UPDATE, DELETE).
 
-Det kan jeg!
-
 **Can use WHERE clause to filter results.**
 
 ```sql
-SELECT * FROM users WHERE name = 'Alice';
+SELECT * FROM users WHERE name = 'Adam';
 ```
-
 Det kan jeg!
 
 ---
@@ -246,7 +236,7 @@ CREATE TABLE orders (
 );
 ```
 
-Her skal værdien i `orders.user_id` findes i `users.id`.
+I dette eksempel skal værdien i `orders.user_id` findes i `users.id`.
 
 **In SELECT statements, can use (with moderate help):**
 
@@ -281,7 +271,6 @@ FROM users
 JOIN orders ON users.id = orders.user_id;
 ```
 
-Det kan jeg, og jeg brugte dem alle i Mandatory I.
 
 **Can create inner, left and right joins after looking up the syntax.**
 
@@ -295,8 +284,6 @@ SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id;
 -- RIGHT: alle orders, også dem uden user
 SELECT * FROM users RIGHT JOIN orders ON users.id = orders.user_id;
 ```
-
-Det kan jeg!
 
 **Can create DDL statements to create tables with constraints: PRIMARY KEY, AUTO_INCREMENT, FOREIGN KEY, UNIQUE, NOT NULL.**
 
@@ -314,16 +301,12 @@ CREATE TABLE orders (
 );
 ```
 
-Det kan jeg!
-
 **Can create DML (UPDATE, DELETE) statements.**
 
 ```sql
 UPDATE users SET name = 'Bob' WHERE id = 1;
 DELETE FROM users WHERE id = 1;
 ```
-
-Jeg husker altid WHERE, ellers rammer det hele tabellen.
 
 Det kan jeg!
 
@@ -335,10 +318,6 @@ git add .
 git commit -m "Add feature"
 git push origin feature-branch
 ```
-
-Bagefter går jeg ind på GitHub, klikker "Compare & pull request", skriver en beskrivelse og submitter.
-
-Det kan jeg!
 
 ---
 
@@ -384,13 +363,9 @@ jobs:
         run: echo "Hello world"
 ```
 
-Reglerne jeg holder mig til:
-
 - Indrykning med mellemrum, aldrig tabs.
 - Key-value format: `key: value`.
 - Lister skrives med `-`.
-
-Det kan jeg!
 
 **Understands what GitHub Actions are and can breakdown workflows into runners, jobs, and steps.**
 
@@ -589,19 +564,3 @@ public void reserveSeat(int seatId) {
 
 Jeg er bevidst om det. Målet er "is aware", ikke at bygge det fra bunden.
 
-**...and atomic structures (tråde / atomare operationer).**
-
-- En atomar operation sker enten helt eller slet ikke, den kan ikke afbrydes halvvejs.
-- Det er vigtigt når flere tråde rører den samme data samtidig, ellers får jeg en race condition.
-- Det er den samme grundtanke som atomicity i databaser, bare på kode-niveau. I kode løser jeg det
-  med låse eller atomare typer, og i databasen løser jeg det med transaktioner.
-
----
-
-## Egenvurdering
-
-- De fleste "can"-mål sidder fint, fordi jeg har brugt dem i Mandatory I (SQL) og i
-  Giftr (Spring, Azure, GitHub Actions).
-- Det jeg vil læse lidt ekstra op på er hurtig talsystem-omregning i hånden, Azure MySQL
-  flexible server uden guide, og at forklare hele deploy-flowet roligt i den rigtige rækkefølge.
-- Resten føler jeg mig klar til at vise mundtligt og med kode.
