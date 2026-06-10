@@ -533,11 +533,9 @@ ACID er fire egenskaber en transaktion skal have:
 - Isolation: samtidige transaktioner forstyrrer ikke hinanden.
 - Durability: når noget først er committet, er det gemt permanent, også selvom strømmen går.
 
-Grunden til at det løser problemerne: Atomicity og rollback fjerner halve updates og lost updates,
+Grunden til at det er smart: Atomicity og rollback fjerner halve updates og lost updates,
 og Isolation forhindrer dirty, non-repeatable og phantom reads. SQL-databaser som MySQL er
 ACID-compliant. Nogle NoSQL bruger i stedet BASE med "eventual consistency".
-
-Det kan jeg forklare!
 
 **Is aware of the possibility to define transactions in SQL and JDBC.**
 
@@ -562,5 +560,4 @@ public void reserveSeat(int seatId) {
 }
 ```
 
-Jeg er bevidst om det. Målet er "is aware", ikke at bygge det fra bunden.
 
